@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 from flask import Flask, render_template, request, session, redirect
 import joblib
 import pandas as pd
@@ -6,6 +7,8 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from cs50 import SQL
 from flask_session import Session
 from functools import wraps
+
+Path("cars.db").touch(exist_ok=True)
 
 db = SQL("sqlite:///cars.db")
 
