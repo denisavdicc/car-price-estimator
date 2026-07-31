@@ -36,7 +36,7 @@ If Python 3.12 isn't installed:
 brew install python@3.12
 ```
 
-If `pip install` fails with an `externally-managed-environment` error, it means the virtual environment wasn't activated first. Make sure you see `(.venv)` at the start of your terminal prompt before running step 4 — if not, repeat step 3.
+If `pip install` fails with an `externally-managed-environment` error, it means the virtual environment wasn't activated first. Make sure you see `(.venv)` at the start of your terminal prompt before running step 4. If not, repeat step 3.
 
 ### Windows
 
