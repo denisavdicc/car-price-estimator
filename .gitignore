@@ -1,0 +1,25 @@
+#Database
+cars.db
+
+#Virtual environment
+.venv/
+venv/
+env/
+
+#Python cache
+__pycache__/
+*.pyc
+
+#Flask session storage
+flask_session/
+
+#Trained model (regenerate via train_model.py)
+model.pkl
+
+#IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+#Env vars
+.env

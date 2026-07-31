@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %} - Predict{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="card shadow mx-auto" style="max-width: 600px;">
+        <div class="card-body p-4">
+
+            <h1 class="text-center mb-3">Car Price Estimator</h1>
+            <p class="text-center text-muted mb-4">Enter vehicle information to estimate its market value.</p>
+
+            {% if error %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endif %}
+
+            <form action="/predict" method="post">
+                <div class="mb-3">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="brand" placeholder="Car Brand" type="text">
+                </div>
+                <div class="mb-3">
+                    <input autocomplete="off" class="form-control mx-auto w-auto" name="model" placeholder="Car Model" type="text">
+                </div>
+                <div class="mb-3">
+                    <input autocomplete="off" class="form-control mx-auto w-auto" name="model_year" placeholder="Model Year" type="number" max="2026">
+                </div>
+                <div class="mb-3">
+                    <input autocomplete="off" class="form-control mx-auto w-auto" name="mileage" placeholder="Mileage" type="number" min="0">
+                </div>
+                <div class="mb-3">
+                    <input autocomplete="off" class="form-control mx-auto w-auto" name="fuel_type" placeholder="Fuel Type" type="text">
+                </div>
+                <div class="mb-3">
+                    <input autocomplete="off" class="form-control mx-auto w-auto" name="transmission" placeholder="Transmission" type="text">
+                </div>
+                <button class="btn btn-primary w-100" type="submit">Predict</button>
+            </form>
+
+            {% if prediction is defined and prediction is not none %}
+                <div class="alert alert-success mt-3">
+                    Estimated Price: ${{ "{:,.2f}".format(prediction) }}
+                </div>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5>Vehicle Information</h5>
+                        <p><strong>Brand:</strong> {{ brand }}</p>
+                        <p><strong>Model:</strong> {{ model }}</p>
+                        <p><strong>Year:</strong> {{ model_year }}</p>
+                        <p><strong>Mileage:</strong> {{ "{:,}".format(mileage) }}</p>
+                        <p><strong>Fuel Type:</strong> {{ fuel_type }}</p>
+                        <p><strong>Transmission:</strong> {{ transmission }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

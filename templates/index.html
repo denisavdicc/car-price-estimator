@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %} - Home{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-3 fw-bold mb-4">Car Price Estimator</h1>
+
+        <p class="lead text-secondary mx-auto" style="max-width: 700px;">
+            Estimate the value of a used car using a machine learning model.
+            Simply enter your vehicle's details and receive an instant price prediction based on real-world data.
+        </p>
+
+        {% if session["user_id"] %}
+            <a href="/predict" class="btn btn-primary btn-lg rounded-pill px-5 mt-3">Predict a Price</a>
+        {% else %}
+            <a href="/login" class="btn btn-primary btn-lg rounded-pill px-5 mt-3 me-2">Log In</a>
+            <a href="/register" class="btn btn-outline-dark btn-lg rounded-pill px-5 mt-3">Register</a>
+        {% endif %}
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 rounded-4 h-100 text-center">
+                <div class="card-body p-4">
+                    <h1>🚗</h1>
+                    <h4 class="fw-bold mt-3">Instant Predictions</h4>
+                    <p class="text-muted">Receive an estimated market price in seconds by entering your car's information.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 rounded-4 h-100 text-center">
+                <div class="card-body p-4">
+                    <h1>📊</h1>
+                    <h4 class="fw-bold mt-3">Prediction History</h4>
+                    <p class="text-muted">
+                        Access your previous price estimates anytime through
+                        your personal history page.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 rounded-4 h-100 text-center">
+                <div class="card-body p-4">
+                    <h1>🔒</h1>
+                    <h4 class="fw-bold mt-3">Secure Accounts</h4>
+                    <p class="text-muted">
+                        Register, log in securely, and manage your account
+                        with password protection.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

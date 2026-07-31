@@ -1,0 +1,15 @@
+nav .navbar-brand {
+    font-size: xx-large;
+    font: arial;
+    font-weight: bold;
+    color: #970000;
+}
+
+body {
+    background-color: #ced1d6;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+}
