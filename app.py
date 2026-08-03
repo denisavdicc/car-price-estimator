@@ -3,6 +3,7 @@ from pathlib import Path
 from flask import Flask, render_template, request, session, redirect
 import joblib
 import pandas as pd
+import numpy as np
 from werkzeug.security import check_password_hash, generate_password_hash
 from cs50 import SQL
 from flask_session import Session
@@ -80,7 +81,8 @@ def predict():
 
         data = pd.DataFrame([{"brand": brand,"model": model_name,"model_year": model_year,"milage": mileage,"fuel_type": fuel_type,"transmission": transmission}])
 
-        prediction = model.predict(data)[0]
+        log_prediction = model.predict(data)[0]
+        prediction = np.expm1(log_prediction)
 
         db.execute("INSERT INTO history (user_id, brand, model, model_year, mileage, fuel_type, transmission, prediction) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", session["user_id"], brand, model_name, model_year, mileage, fuel_type, transmission, prediction)
 
@@ -190,4 +192,6 @@ def delete_prediction():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
 
