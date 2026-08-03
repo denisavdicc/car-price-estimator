@@ -71,6 +71,17 @@ If `python` isn't recognized, try `py` instead (`py -m venv .venv`, then `py tra
 
 The database (`cars.db`) and its tables are created automatically the first time the app runs, so no manual database setup is needed. Once it's running, visit `http://127.0.0.1:5000` in your browser, register an account, and start predicting.
 
+## Troubleshooting
+
+### Virtual environment creation fails
+
+Make sure you are using Python 3.12. Some machine learning dependencies used in this project may not yet support newer Python versions.
+
+If pip is missing or the virtual environment cannot be created on macOS/Linux:
+
+```bash
+python3.12 -m ensurepip --upgrade
+
 ## The Dataset
 
 The model is trained on `used_cars.csv`, 4,009 listings covering 57 brands and 1898 distinct models, with model years from 1974 to 2024. The raw file has 12 columns, including engine description, exterior/interior color, accident history, and clean title status, but I only used six as features: brand, model, model_year, milage, fuel_type, and transmission.
