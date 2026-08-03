@@ -81,6 +81,7 @@ If pip is missing or the virtual environment cannot be created on macOS/Linux:
 
 ```bash
 python3.12 -m ensurepip --upgrade
+```
 
 ## The Dataset
 
