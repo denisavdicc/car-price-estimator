@@ -21,13 +21,16 @@ python3.12 -m venv .venv
 # 3. Activate it
 source .venv/bin/activate
 
-# 4. Install dependencies
+# 4. Upgrade installation tools
+python -m pip install --upgrade pip setuptools wheel
+
+# 5. Install dependencies
 pip install -r requirements.txt
 
-# 5. Train the model (generates model.pkl, takes a minute or two)
+# 6. Train the model (generates model.pkl)
 python train_model.py
 
-# 6. Run the app
+# 7. Run the app
 python app.py
 ```
 
@@ -35,8 +38,6 @@ If Python 3.12 isn't installed:
 ```bash
 brew install python@3.12
 ```
-
-If `pip install` fails with an `externally-managed-environment` error, it means the virtual environment wasn't activated first. Make sure you see `(.venv)` at the start of your terminal prompt before running step 4. If not, repeat step 3.
 
 ### Windows
 
@@ -51,13 +52,16 @@ python -m venv .venv
 # 3. Activate it
 .venv\Scripts\activate
 
-# 4. Install dependencies
+# 4. Upgrade pip
+python -m pip install --upgrade pip setuptools wheel
+
+# 5. Install dependencies
 pip install -r requirements.txt
 
-# 5. Train the model (generates model.pkl, takes a minute or two)
+# 6. Train the model (generates model.pkl, takes a minute or two)
 python train_model.py
 
-# 6. Run the app
+# 7. Run the app
 python app.py
 ```
 
